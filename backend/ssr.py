@@ -1,23 +1,35 @@
 import requests
 
 
+def innit():
+
+  
+    URL = "https://ssr.finanstilsynet.no/api/v2/instruments/"
+
+    r = requests.get(url=URL)
+
+    data = r.json()
+
+    #test
+    print(len(data))
+    print(data[0]['events'])
 
 
-print(len(data))
-print(data[0]['events'])
-for i in range(len(data)):
-  print(data[i]['issuerName'])
-# print(data[1]["issuerName"])
+    for i in range(len(data)):
+        print(data[i]['issuerName'])
+        # print(data[1]["issuerName"])
+
+
+
 
 class SSR:
   def __init__(self) -> None:
 
 
-    URL = "https://ssr.finanstilsynet.no/api/v2/instruments/"
+    self.stocks = open("issuers.txt")
+    
+    # self.data = r.json()
 
-    r = requests.get(url=URL)
-
-    self.data = r.json()
 
 
   
